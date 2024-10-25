@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de CEP - ViaCEP</title>
+    
+    <!-- Incluindo JQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            // Função que é executada quando o formulário é submetido
+            $('#form-pesquisa').submit(function(event) {
+                event.preventDefault(); // Impede o recarregamento da página
+
+                // Limpa a área de resultados e mensagens de erro
+                $('#resultado').html('');
+                $('#erro').text('');
+
+                // Obtém os valores dos campos de estado, cidade e rua
+                var estado = $('#estado').val();
+                var cidade = $('#cidade').val();
+                var rua = $('#rua').val();
+
+                // Verifica se todos os campos estão preenchidos
+                if (estado !== "" && cidade !== "" && rua !== "") {
+                    // Monta a URL para consulta à API ViaCEP
+                    var url = `https://viacep.com.br/ws/${estado}/${cidade}/${rua}/json/`;
+
+                    // Faz a requisição para a API ViaCEP
+                    $.getJSON(url, function(dados) {
+                        if (dados.length > 0) {
+                            // Para cada endereço encontrado, cria um item na lista de resultados
+                            dados.forEach(function(item) {
+                                $('#resultado').append(`<p>CEP: ${item.cep} - Logradouro: ${item.logradouro}, Bairro: ${item.bairro}, Cidade: ${item.localidade}, Estado: ${item.uf}</p>`);
+                            });
+                        } else {
+                            $('#erro').text('Nenhum CEP encontrado para os parâmetros informados.');
+                        }
+                    }).fail(function() {
+                        $('#erro').text('Erro ao consultar a API. Verifique os dados e tente novamente.');
+                    });
+                } else {
+                    // Caso algum campo esteja vazio, exibe uma mensagem de erro
+                    $('#erro').text('Por favor, preencha todos os campos.');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h1>Pesquisa de CEP</h1>
+
+    <!-- Formulário para o usuário informar o estado, cidade e rua -->
+    <form id="form-pesquisa">
+        <label for="estado">Estado (UF):</label>
+        <input type="text" id="estado" name="estado" maxlength="2" placeholder="Ex: RS" required><br>
+
+        <label for="cidade">Cidade:</label>
+        <input type="text" id="cidade" name="cidade" placeholder="Ex: Porto Alegre" required><br>
+
+        <label for="rua">Nome da Rua:</label>
+        <input type="text" id="rua" name="rua" placeholder="Ex: Domingos" required><br>
+
+        <button type="submit">Buscar CEP</button>
+    </form>
+
+    <!-- Área onde os resultados da pesquisa serão exibidos -->
+    <div id="resultado"></div>
+
+    <!-- Exibe erros de validação ou problemas com a API -->
+    <p id="erro" style="color: red;"></p>
+
+</body>
+</html>

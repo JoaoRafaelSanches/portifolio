@@ -1,0 +1,21 @@
+Questões Dissertativas
+
+1 - Arquitetura do Linux: Explique a arquitetura do sistema operacional Linux. Discuta os principais componentes, como o núcleo (kernel), as bibliotecas e as interfaces de usuário. Como esses elementos interagem para permitir o funcionamento do sistema?
+
+2 - Distribuições do Linux: Compare e contraste duas distribuições populares do Linux, como Ubuntu e CentOS. Quais são as principais diferenças em termos de objetivo, gestão de pacotes e público-alvo? Como essas diferenças influenciam a escolha de uma distribuição para um determinado projeto?
+
+3- Utilização de Terminais: Descreva como o terminal Bash é utilizado para executar comandos no Linux. Dê exemplos de comandos comuns e explique a importância do histórico de comandos (history) e da documentação de comandos (man) para o usuário.
+
+4 - Manipulação de Diretórios: Explique os principais comandos utilizados para manipular diretórios no Linux, como mkdir, rmdir, cd e ls. Como a estrutura hierárquica de diretórios do Linux facilita a organização de arquivos e pastas?
+
+5 - Usuários e Permissões: Discuta a gestão de usuários e grupos no Linux. Como as permissões de leitura, escrita e execução são atribuídas a arquivos e diretórios? Explique como o comando chmod pode ser utilizado para modificar permissões e a importância da segurança em um ambiente multiusuário.
+
+6 - Processos no Linux: O que são processos no contexto do Linux? Descreva como o sistema gerencia processos e a função de comandos como ps, top e kill. Como a manipulação de processos é essencial para a administração do sistema?
+
+7 - Estrutura de Diretórios: Analise a estrutura de diretórios padrão do Linux. Quais são as funções das pastas principais, como /home, /etc, /var e /usr? Como essa estrutura ajuda na organização e na localização de arquivos do sistema?
+
+8 - Script em Bash: Elabore um pequeno script em Bash que realiza a cópia de todos os arquivos de um diretório para outro, registrando a operação em um arquivo de log. Explique cada parte do script e a importância da automação em tarefas administrativas.
+
+9 - Gerenciamento de Pacotes: Explique o que é um gerenciador de pacotes e como ele é utilizado em distribuições Linux. Compare o uso do apt no Debian/Ubuntu e do yum no CentOS. Quais são as vantagens e desvantagens de cada um?
+
+10 - Segurança em Linux: Discuta as práticas recomendadas para garantir a segurança em um sistema Linux. Como a configuração de usuários, permissões de arquivo e atualizações de software contribuem para a proteção contra ameaças?
